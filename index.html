@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ошибка</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+        .error-screen, .music-screen { width: 100vw; height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background: #333; color: white; text-align: center; }
+        .error-screen button, .music-screen button { margin-top: 20px; padding: 10px 20px; background: #739dff; color: white; border: none; cursor: pointer; font-size: 16px; }
+        .music-screen { display: none; }
+        .music-screen img { width: 150px; height: 150px; border-radius: 50%; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <div class="error-screen">
+        <h1>Произошла ошибка, попробуйте перезагрузить сайт</h1>
+        <button onclick="showMusicScreen()">Перезагрузить</button>
+    </div>
+    
+    <div class="music-screen">
+        <img src="image.jpg" alt="Фото">
+        <button>🔇 Заглушить</button>
+        <audio id="music" src="ston.mp3" autoplay></audio>
+    </div>
+    
+    <script>
+        function showMusicScreen() {
+            document.querySelector('.error-screen').style.display = 'none';
+            document.querySelector('.music-screen').style.display = 'flex';
+            document.getElementById('music').play();
+        }
+    </script>
+</body>
+</html>
