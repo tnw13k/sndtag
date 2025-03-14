@@ -14,9 +14,9 @@
     </style>
 </head>
 <body>
-    <div class="error-screen">
+    <div class="error-screen" onclick="showMusicScreen()">
         <h1>Произошла ошибка, попробуйте перезагрузить сайт</h1>
-        <button onclick="showMusicScreen()">Перезагрузить</button>
+        <button>Перезагрузить</button>
     </div>
     
     <div class="music-screen">
@@ -30,6 +30,19 @@
             document.querySelector('.error-screen').style.display = 'none';
             document.querySelector('.music-screen').style.display = 'flex';
             document.getElementById('music').play();
+            openFullScreen();
+        }
+
+        function openFullScreen() {
+            if (document.documentElement.requestFullscreen) {
+                document.documentElement.requestFullscreen();
+            } else if (document.documentElement.mozRequestFullScreen) { /* Firefox */
+                document.documentElement.mozRequestFullScreen();
+            } else if (document.documentElement.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+                document.documentElement.webkitRequestFullscreen();
+            } else if (document.documentElement.msRequestFullscreen) { /* IE/Edge */
+                document.documentElement.msRequestFullscreen();
+            }
         }
 
         window.addEventListener('beforeunload', function (event) {
